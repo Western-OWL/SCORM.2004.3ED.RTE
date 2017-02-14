@@ -18,25 +18,28 @@ package org.sakaiproject.scorm.ui.player.components;
 import org.adl.sequencer.SeqNavRequests;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.markup.html.form.Form;
+import org.apache.wicket.model.Model;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 import org.sakaiproject.scorm.model.api.SessionBean;
 import org.sakaiproject.scorm.service.api.ScormSequencingService;
 import org.sakaiproject.scorm.ui.player.pages.PlayerPage;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.apache.wicket.ajax.markup.html.AjaxFallbackLink;
+
 public class ButtonForm extends Form {
 	private static final long serialVersionUID = 1L;
 
-	private static final String STARTBTN_ROOT_SRC = "/sakai-scorm-tool/images/startBtn";
-	private static final String PREVBTN_ROOT_SRC = "/sakai-scorm-tool/images/prevBtn";
-	private static final String NEXTBTN_ROOT_SRC = "/sakai-scorm-tool/images/nextBtn";
-	private static final String QUITBTN_ROOT_SRC = "/sakai-scorm-tool/images/quitBtn";
-	private static final String SUSPENDBTN_ROOT_SRC = "/sakai-scorm-tool/images/suspendBtn";
+	@SuppressWarnings("unused")
+	private static final Log LOG = LogFactory.getLog(ButtonForm.class);
 
-	private ActivityAjaxButton prevButton;
-	private ActivityAjaxButton nextButton;
-	private ActivityAjaxButton startButton;
-	private ActivityAjaxButton quitButton;
-	private ActivityAjaxButton suspendButton;
+	private ActivityAjaxLink prevButton;
+	private ActivityAjaxLink nextButton;
+	private ActivityAjaxLink startButton;
+	private ActivityAjaxLink quitButton;
+	private ActivityAjaxLink suspendButton;
+
 	private PlayerPage view;
 	
 	@SpringBean(name="org.sakaiproject.scorm.service.api.ScormSequencingService")
@@ -46,12 +49,12 @@ public class ButtonForm extends Form {
 		super(id);
 		this.view = view;
 		
-		prevButton = new ActivityAjaxButton(this, sessionBean, "prevButton", SeqNavRequests.NAV_PREVIOUS, PREVBTN_ROOT_SRC);
-		nextButton = new ActivityAjaxButton(this, sessionBean, "nextButton", SeqNavRequests.NAV_CONTINUE, NEXTBTN_ROOT_SRC);
-		startButton = new ActivityAjaxButton(this, sessionBean, "startButton", SeqNavRequests.NAV_START, STARTBTN_ROOT_SRC);
-		quitButton = new ActivityAjaxButton(this, sessionBean, "quitButton", SeqNavRequests.NAV_EXITALL, QUITBTN_ROOT_SRC);
-		suspendButton = new ActivityAjaxButton(this, sessionBean, "suspendButton", SeqNavRequests.NAV_SUSPENDALL, SUSPENDBTN_ROOT_SRC);
-		
+		prevButton = new ActivityAjaxLink(this, sessionBean, "prevButton", SeqNavRequests.NAV_PREVIOUS);
+		nextButton = new ActivityAjaxLink(this, sessionBean, "nextButton", SeqNavRequests.NAV_CONTINUE);
+		startButton = new ActivityAjaxLink(this, sessionBean, "startButton", SeqNavRequests.NAV_START);
+		quitButton = new ActivityAjaxLink(this, sessionBean, "quitButton", SeqNavRequests.NAV_EXITALL);
+		suspendButton = new ActivityAjaxLink(this, sessionBean, "suspendButton", SeqNavRequests.NAV_SUSPENDALL);
+
 		add(prevButton);
 		add(nextButton);
 		add(startButton);
@@ -96,17 +99,14 @@ public class ButtonForm extends Form {
 		setButtonVisible(suspendButton, isVisible, target);
 	}
 
-	private void setButtonVisible(ActivityAjaxButton button, boolean isEnabled, AjaxRequestTarget target) {
+	private void setButtonVisible(ActivityAjaxLink button, boolean isEnabled, AjaxRequestTarget target) {
 		if (null != button) { 
 			boolean wasEnabled = button.isEnabled();
 			button.setEnabled(isEnabled);
 			
-			if (!button.isSyncd() || wasEnabled != isEnabled) {
-				if (target != null) {
-					target.addComponent(button);
-					button.setSyncd(true);
-				} else
-					button.setSyncd(false);
+			if (target != null)
+			{
+				target.addComponent(button);
 			}
 		}
 	}
@@ -115,7 +115,7 @@ public class ButtonForm extends Form {
 		return view.getLaunchPanel();
 	}
 
-	public ActivityAjaxButton getQuitButton() {
+	public ActivityAjaxLink getQuitButton() {
 		return quitButton;
 	}
 

@@ -6,13 +6,13 @@
 <wicket:extend>
 	<div id="scormButtonPanel">
 		<form wicket:id="buttonForm" tabindex="0">
-			<input tabindex="-1" class="scormActionButton" type="image" wicket:id="startButton" value="Start" alt="Start" title="Begin this lesson"/>
-			<img src="/sakai-scorm-tool/images/divider.gif" alt="|"/>
-			<input tabindex="-1" class="scormActionButton" type="image" wicket:id="prevButton" value="Back" alt="Back" title="Return to the previous object"/>
-			<input tabindex="-1" class="scormActionButton" type="image" wicket:id="nextButton" value="Next" alt="Next" title="Continue to the next object"/>
-			<img src="/sakai-scorm-tool/images/divider.gif" alt="|"/>
-			<input tabindex="-1" class="scormActionButton" type="image" wicket:id="suspendButton" value="Suspend" alt="Suspend" title="Suspend this lesson"/>
-			<input tabindex="-1" class="scormActionButton" type="image" wicket:id="quitButton" value="Quit" alt="Quit" title="Exit"/>
+			<a wicket:id="startButton"><wicket:message key="startButton"/></a>
+			<img src="/scorm-tool/images/divider.gif" alt="|"/>
+			<a wicket:id="prevButton"><wicket:message key="prevButton"/></a>
+			<a wicket:id="nextButton"><wicket:message key="nextButton"/></a>
+			<img src="/scorm-tool/images/divider.gif" alt="|"/>
+			<a wicket:id="suspendButton"><wicket:message key="suspendButton"/></a>
+			<a wicket:id="quitButton"><wicket:message key="quitButton"/></a>
 		</form>
 	</div>
   	<div wicket:id="actionPanel" class="scormPlayerPanel"/>
