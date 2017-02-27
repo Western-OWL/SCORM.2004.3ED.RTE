@@ -6,12 +6,12 @@
         <groupId>org.sakaiproject</groupId>
         <artifactId>master</artifactId>
         <relativePath>../master/pom.xml</relativePath>
-        <version>11-SNAPSHOT</version>
+        <version>11.3</version>
     </parent>
 
     <name>SCORM Player</name>
     <artifactId>scorm-base</artifactId>
-    <version>11-SNAPSHOT</version>
+    <version>11.3</version>
     <packaging>pom</packaging>
     <organization>
         <name>Sakai Project</name>
