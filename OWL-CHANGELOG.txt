@@ -1,33 +1,4 @@
-2017.01.18:
-	- [OWL-2598] update license headers and license plugin
-2016.04.07:
-	- [OWL-2236] export file needs a better name
-	- [OWL-2235] escape spaces in module names when entity linking
-2016.04.06:
-	- [OWL-2224] fix trailing divider after the "Upload" tab in the SCORM navbar
-2016.03.08:
-	- [OWL-2147] warn user about lost grades when de-associating with the gradebook via 'Configure'
-2016.02.22:
-	- [OWL-1816] make SCORM modules entity linkable
-2016.02.17:
-	- [OWL-2053] SCORM Player errors don't bubble to portal
-2016.02.12:
-	- [OWL-1201] add ability to export SCORM module results to CSV file
-2016.02.04:
-	- [OWL-630] implement table column sorting for results tables
-2016.02.03:
-	- [OWL-2135] remove 'validate' checkbox on the upload UI
-2016.02.02:
-	- [OWL-785] clicking 'upload file' before choosing a file disables the button
-2016.01.29:
-	- [OWL-1715] scorm player navIntraTool markup is incorrect
-2015.12.14:
-        - [OWL-2145] warn users grades will be deleted when deleting module
-2015.11.02:
-	- [OWL-2052] fix Wicket error when navigating to any page other than the first in the results UI
-2015.10.30:
-	- [OWL-1970] gradebook items orphaned (not deleted) when deleting a module sending grades to gradebook
-2015.03.16:
-	- [OWL-1570] backport SCO-105, SCO-107, SCO-108, SCO-109
-	- [OWL-1570] pom updates for Sakai 10
-	- copied from https://source.sakaiproject.org/contrib/scorm/SCORM.2004.3ED.RTE/branches/sakai-10/
+2017.02.14:
+	- [OWL-2595] converted ActivityAjaxButtons to ActivityAjaxLinks for internationalization
+2017.01.19:
+	- copied from https://github.com/sakaicontrib/SCORM.2004.3ED.RTE/tree/11.x
