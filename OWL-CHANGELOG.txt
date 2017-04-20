@@ -1,3 +1,5 @@
+2017.04.20:
+	- [OWL-2785] remove wicket-for-scorm module, replace with references to wicket library
 2017.02.14:
 	- [OWL-2595] converted ActivityAjaxButtons to ActivityAjaxLinks for internationalization
 2017.01.19:
