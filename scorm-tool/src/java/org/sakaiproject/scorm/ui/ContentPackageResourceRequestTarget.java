@@ -55,8 +55,9 @@ import org.apache.wicket.Response;
 import org.apache.wicket.WicketRuntimeException;
 import org.apache.wicket.protocol.http.WebResponse;
 import org.apache.wicket.request.RequestParameters;
+
 import org.sakaiproject.scorm.ui.player.pages.PlayerPage;
-import org.sakaiproject.wicket.protocol.http.SakaiWebApplication;
+import org.sakaiproject.wicket.core.application.SakaiWebApplication;
 
 public class ContentPackageResourceRequestTarget implements IRequestTarget {
 

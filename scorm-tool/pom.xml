@@ -37,12 +37,6 @@
             <artifactId>scorm-service-impl</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.sakaiproject.scorm</groupId>
-            <artifactId>wicket-for-scorm-tool</artifactId>
-            <type>jar</type>
-            <scope>compile</scope>
-        </dependency>
 
         <!-- Sakai API Dependencies -->
         <dependency>
@@ -153,6 +147,28 @@
             <groupId>xerces</groupId>
             <artifactId>xmlParserAPIs</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.wicket</groupId>
+            <artifactId>wicket</artifactId>
+            <version>${sakai.wicket.version}</version>
+        </dependency>
+
+        <!-- Sakai Wicket Library Dependencies -->
+        <dependency>
+            <groupId>org.sakaiproject.wicket</groupId>
+            <artifactId>sakai-wicket-core</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.sakaiproject.wicket</groupId>
+            <artifactId>sakai-wicket-components</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.sakaiproject.wicket</groupId>
+            <artifactId>sakai-wicket-utils</artifactId>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 

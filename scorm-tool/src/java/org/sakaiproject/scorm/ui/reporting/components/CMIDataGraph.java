@@ -26,7 +26,7 @@ import org.apache.wicket.model.ResourceModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 import org.sakaiproject.scorm.model.api.CMIData;
 import org.sakaiproject.scorm.service.api.ScormResultService;
-import org.sakaiproject.wicket.markup.html.repeater.data.table.BasicDataTable;
+import org.sakaiproject.wicket.component.repeater.data.table.BasicDataTable;
 
 public class CMIDataGraph extends Panel {
 

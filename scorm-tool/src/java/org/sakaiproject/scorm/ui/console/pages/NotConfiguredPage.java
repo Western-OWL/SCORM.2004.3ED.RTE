@@ -25,7 +25,7 @@ import org.apache.wicket.spring.injection.annot.SpringBean;
 import org.sakaiproject.scorm.api.ScormConstants;
 import org.sakaiproject.scorm.service.api.LearningManagementSystem;
 import org.sakaiproject.scorm.service.api.ScormContentService;
-import org.sakaiproject.wicket.markup.html.SakaiPortletWebPage;
+import org.sakaiproject.wicket.core.portlet.page.SakaiPortletWebPage;
 
 public class NotConfiguredPage extends SakaiPortletWebPage implements IHeaderContributor, ScormConstants {
 

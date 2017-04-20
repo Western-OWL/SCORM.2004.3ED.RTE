@@ -36,8 +36,8 @@ import org.sakaiproject.scorm.service.api.ScormSequencingService;
 import org.sakaiproject.scorm.ui.Icon;
 import org.sakaiproject.scorm.ui.console.pages.ConsoleBasePage;
 import org.sakaiproject.scorm.ui.reporting.components.LearnerDetailsPanel;
-import org.sakaiproject.wicket.markup.html.link.BookmarkablePageLabeledLink;
-import org.sakaiproject.wicket.markup.html.repeater.data.table.DecoratedPropertyColumn;
+import org.sakaiproject.wicket.component.link.BookmarkablePageLabeledLink;
+import org.sakaiproject.wicket.component.repeater.data.table.DecoratedPropertyColumn;
 
 public abstract class BaseResultsPage extends ConsoleBasePage {
 

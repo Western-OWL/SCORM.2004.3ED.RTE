@@ -18,7 +18,7 @@ package org.sakaiproject.scorm.ui.console.components;
 import org.apache.wicket.Component;
 import org.apache.wicket.PageParameters;
 import org.apache.wicket.util.lang.PropertyResolver;
-import org.sakaiproject.wicket.markup.html.repeater.data.table.Action;
+import org.sakaiproject.wicket.component.repeater.data.table.Action;
 
 public class AttemptNumberAction extends Action {
 

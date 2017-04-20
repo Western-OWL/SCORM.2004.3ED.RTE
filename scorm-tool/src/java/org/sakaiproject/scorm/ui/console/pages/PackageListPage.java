@@ -45,11 +45,11 @@ import org.sakaiproject.scorm.ui.console.components.DecoratedDatePropertyColumn;
 import org.sakaiproject.scorm.ui.player.pages.PlayerPage;
 import org.sakaiproject.scorm.ui.reporting.pages.LearnerResultsPage;
 import org.sakaiproject.scorm.ui.reporting.pages.ResultsListPage;
-import org.sakaiproject.wicket.markup.html.link.BookmarkablePageLabeledLink;
-import org.sakaiproject.wicket.markup.html.repeater.data.table.Action;
-import org.sakaiproject.wicket.markup.html.repeater.data.table.ActionColumn;
-import org.sakaiproject.wicket.markup.html.repeater.data.table.BasicDataTable;
-import org.sakaiproject.wicket.markup.html.repeater.data.table.ImageLinkColumn;
+import org.sakaiproject.wicket.component.link.BookmarkablePageLabeledLink;
+import org.sakaiproject.wicket.component.repeater.data.table.Action;
+import org.sakaiproject.wicket.component.repeater.data.table.ActionColumn;
+import org.sakaiproject.wicket.component.repeater.data.table.BasicDataTable;
+import org.sakaiproject.wicket.component.repeater.data.table.ImageLinkColumn;
 
 public class PackageListPage extends ConsoleBasePage implements ScormConstants {
 

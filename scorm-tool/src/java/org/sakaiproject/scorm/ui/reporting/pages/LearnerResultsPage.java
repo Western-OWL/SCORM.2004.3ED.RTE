@@ -36,10 +36,10 @@ import org.sakaiproject.scorm.model.api.Learner;
 import org.sakaiproject.scorm.ui.console.pages.DisplayDesignatedPackage;
 import org.sakaiproject.scorm.ui.console.pages.PackageListPage;
 import org.sakaiproject.scorm.ui.reporting.util.SummaryProvider;
-import org.sakaiproject.wicket.markup.html.link.BookmarkablePageLabeledLink;
-import org.sakaiproject.wicket.markup.html.repeater.data.presenter.EnhancedDataPresenter;
-import org.sakaiproject.wicket.markup.html.repeater.data.table.Action;
-import org.sakaiproject.wicket.markup.html.repeater.data.table.ActionColumn;
+import org.sakaiproject.wicket.component.link.BookmarkablePageLabeledLink;
+import org.sakaiproject.wicket.component.repeater.data.presenter.EnhancedDataPresenter;
+import org.sakaiproject.wicket.component.repeater.data.table.Action;
+import org.sakaiproject.wicket.component.repeater.data.table.ActionColumn;
 
 public class LearnerResultsPage extends BaseResultsPage {
 

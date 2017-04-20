@@ -19,7 +19,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.sakaiproject.scorm.model.api.Objective;
-import org.sakaiproject.wicket.markup.html.repeater.util.EnhancedDataProvider;
+import org.sakaiproject.wicket.util.repeater.EnhancedDataProvider;
 
 public class ObjectiveProvider extends EnhancedDataProvider {
 

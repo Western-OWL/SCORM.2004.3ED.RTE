@@ -37,7 +37,7 @@ import org.sakaiproject.scorm.ui.ContentPackageResourceMountStrategy;
 import org.sakaiproject.scorm.ui.console.pages.DisplayDesignatedPackage;
 import org.sakaiproject.scorm.ui.console.pages.NotConfiguredPage;
 import org.sakaiproject.tool.api.ToolManager;
-import org.sakaiproject.wicket.protocol.http.SakaiWebApplication;
+import org.sakaiproject.wicket.core.application.SakaiWebApplication;
 
 public class SingleScormPackageApplication extends SakaiWebApplication {
 

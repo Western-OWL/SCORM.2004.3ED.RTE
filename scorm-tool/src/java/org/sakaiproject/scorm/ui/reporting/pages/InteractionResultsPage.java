@@ -36,8 +36,8 @@ import org.sakaiproject.scorm.model.api.Learner;
 import org.sakaiproject.scorm.model.api.Objective;
 import org.sakaiproject.scorm.ui.reporting.components.InteractionPanel;
 import org.sakaiproject.scorm.ui.reporting.util.ObjectiveProvider;
-import org.sakaiproject.wicket.markup.html.link.BookmarkablePageLabeledLink;
-import org.sakaiproject.wicket.markup.html.repeater.data.presenter.EnhancedDataPresenter;
+import org.sakaiproject.wicket.component.link.BookmarkablePageLabeledLink;
+import org.sakaiproject.wicket.component.repeater.data.presenter.EnhancedDataPresenter;
 
 public class InteractionResultsPage extends BaseResultsPage {
 

@@ -20,6 +20,7 @@ import java.util.Arrays;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+
 import org.apache.wicket.Component;
 import org.apache.wicket.PageParameters;
 import org.apache.wicket.ResourceReference;
@@ -44,6 +45,7 @@ import org.apache.wicket.model.Model;
 import org.apache.wicket.model.ResourceModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 import org.apache.wicket.util.lang.Bytes;
+
 import org.sakaiproject.component.api.ServerConfigurationService;
 import org.sakaiproject.event.api.NotificationService;
 import org.sakaiproject.scorm.api.ScormConstants;
@@ -52,7 +54,7 @@ import org.sakaiproject.scorm.service.api.ScormContentService;
 import org.sakaiproject.scorm.service.api.ScormResourceService;
 import org.sakaiproject.scorm.ui.console.pages.ConsoleBasePage;
 import org.sakaiproject.scorm.ui.console.pages.PackageListPage;
-import org.sakaiproject.wicket.markup.html.form.CancelButton;
+import org.sakaiproject.wicket.component.form.CancelButton;
 
 public class UploadPage extends ConsoleBasePage implements ScormConstants {
 

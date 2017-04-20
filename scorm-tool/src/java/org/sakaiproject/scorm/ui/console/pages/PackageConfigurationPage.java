@@ -44,9 +44,9 @@ import org.sakaiproject.scorm.service.api.ScormContentService;
 import org.sakaiproject.service.gradebook.shared.GradebookExternalAssessmentService;
 import org.sakaiproject.tool.api.Placement;
 import org.sakaiproject.tool.cover.ToolManager;
-import org.sakaiproject.wicket.markup.html.form.CancelButton;
-import org.sakaiproject.wicket.model.DecoratedPropertyModel;
-import org.sakaiproject.wicket.model.SimpleDateFormatPropertyModel;
+import org.sakaiproject.wicket.component.form.CancelButton;
+import org.sakaiproject.wicket.util.model.DecoratedPropertyModel;
+import org.sakaiproject.wicket.util.model.SimpleDateFormatPropertyModel;
 
 public class PackageConfigurationPage extends ConsoleBasePage {
 

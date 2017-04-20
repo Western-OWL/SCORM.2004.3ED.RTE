@@ -60,10 +60,10 @@ import org.sakaiproject.scorm.ui.console.components.AttemptNumberAction;
 import org.sakaiproject.scorm.ui.console.components.ContentPackageDetailPanel;
 import org.sakaiproject.scorm.ui.console.components.DecoratedDatePropertyColumn;
 import org.sakaiproject.scorm.ui.console.pages.ConsoleBasePage;
-import org.sakaiproject.wicket.markup.html.repeater.data.presenter.EnhancedDataPresenter;
-import org.sakaiproject.wicket.markup.html.repeater.data.table.Action;
-import org.sakaiproject.wicket.markup.html.repeater.data.table.ActionColumn;
-import org.sakaiproject.wicket.markup.html.repeater.util.EnhancedDataProvider;
+import org.sakaiproject.wicket.component.repeater.data.presenter.EnhancedDataPresenter;
+import org.sakaiproject.wicket.component.repeater.data.table.Action;
+import org.sakaiproject.wicket.component.repeater.data.table.ActionColumn;
+import org.sakaiproject.wicket.util.repeater.EnhancedDataProvider;
 
 public class ResultsListPage extends ConsoleBasePage {
 

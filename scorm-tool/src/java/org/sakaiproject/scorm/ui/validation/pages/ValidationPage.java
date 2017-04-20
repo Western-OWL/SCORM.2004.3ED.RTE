@@ -28,13 +28,14 @@ import org.apache.wicket.extensions.markup.html.repeater.data.table.PropertyColu
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.ResourceModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
+
 import org.sakaiproject.component.cover.ServerConfigurationService;
 import org.sakaiproject.scorm.model.api.Archive;
 import org.sakaiproject.scorm.service.api.ScormContentService;
 import org.sakaiproject.scorm.service.api.ScormResourceService;
 import org.sakaiproject.scorm.ui.console.pages.ConsoleBasePage;
-import org.sakaiproject.wicket.markup.html.repeater.data.table.AjaxImageLinkColumn;
-import org.sakaiproject.wicket.markup.html.repeater.data.table.BasicDataTable;
+import org.sakaiproject.wicket.component.ajax.repeater.data.table.AjaxImageLinkColumn;
+import org.sakaiproject.wicket.component.repeater.data.table.BasicDataTable;
 
 public class ValidationPage extends ConsoleBasePage {
 

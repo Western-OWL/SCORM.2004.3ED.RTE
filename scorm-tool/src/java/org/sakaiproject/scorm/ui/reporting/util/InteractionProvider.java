@@ -24,7 +24,7 @@ import org.apache.wicket.extensions.markup.html.repeater.util.SortParam;
 import org.sakaiproject.scorm.model.api.Interaction;
 import org.sakaiproject.scorm.model.api.comparator.InteractionComparator;
 import org.sakaiproject.scorm.model.api.comparator.InteractionComparator.CompType;
-import org.sakaiproject.wicket.markup.html.repeater.util.EnhancedDataProvider;
+import org.sakaiproject.wicket.util.repeater.EnhancedDataProvider;
 
 public class InteractionProvider extends EnhancedDataProvider {
 

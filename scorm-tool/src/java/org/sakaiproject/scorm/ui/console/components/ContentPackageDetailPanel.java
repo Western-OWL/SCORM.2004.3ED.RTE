@@ -24,8 +24,8 @@ import org.sakaiproject.scorm.exceptions.LearnerNotDefinedException;
 import org.sakaiproject.scorm.model.api.ContentPackage;
 import org.sakaiproject.scorm.model.api.Learner;
 import org.sakaiproject.scorm.service.api.LearningManagementSystem;
-import org.sakaiproject.wicket.model.DecoratedPropertyModel;
-import org.sakaiproject.wicket.model.SimpleDateFormatPropertyModel;
+import org.sakaiproject.wicket.util.model.DecoratedPropertyModel;
+import org.sakaiproject.wicket.util.model.SimpleDateFormatPropertyModel;
 
 public class ContentPackageDetailPanel extends Panel {
 

@@ -27,17 +27,16 @@ import org.apache.wicket.markup.html.resources.CompressedResourceReference;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.ResourceModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
+
 import org.sakaiproject.component.api.ServerConfigurationService;
 import org.sakaiproject.scorm.service.api.LearningManagementSystem;
 import org.sakaiproject.scorm.ui.Icon;
 import org.sakaiproject.scorm.ui.console.components.BreadcrumbPanel;
 import org.sakaiproject.scorm.ui.console.components.SakaiFeedbackPanel;
 import org.sakaiproject.scorm.ui.upload.pages.UploadPage;
-import org.sakaiproject.scorm.ui.validation.pages.ValidationPage;
 import org.sakaiproject.tool.api.ToolManager;
-import org.sakaiproject.wicket.markup.html.SakaiPortletWebPage;
-import org.sakaiproject.wicket.markup.html.link.NavIntraLink;
-
+import org.sakaiproject.wicket.component.link.NavIntraLink;
+import org.sakaiproject.wicket.core.portlet.page.SakaiPortletWebPage;
 
 public class ConsoleBasePage extends SakaiPortletWebPage implements IHeaderContributor {
 

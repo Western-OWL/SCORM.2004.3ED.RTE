@@ -20,7 +20,7 @@ import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.markup.repeater.RepeatingView;
 import org.apache.wicket.model.Model;
-import org.sakaiproject.wicket.markup.html.link.BookmarkablePageLabeledLink;
+import org.sakaiproject.wicket.component.link.BookmarkablePageLabeledLink;
 
 public class AttemptNumberPanel extends Panel {
 

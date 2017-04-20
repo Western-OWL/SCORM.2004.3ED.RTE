@@ -19,7 +19,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.apache.wicket.model.IModel;
-import org.sakaiproject.wicket.markup.html.repeater.data.table.DecoratedPropertyColumn;
+import org.sakaiproject.wicket.component.repeater.data.table.DecoratedPropertyColumn;
 
 public class DecoratedDatePropertyColumn extends DecoratedPropertyColumn {
 

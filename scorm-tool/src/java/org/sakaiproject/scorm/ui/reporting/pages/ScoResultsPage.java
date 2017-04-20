@@ -41,12 +41,12 @@ import org.sakaiproject.scorm.ui.reporting.components.InteractionPanel;
 import org.sakaiproject.scorm.ui.reporting.components.ProgressPanel;
 import org.sakaiproject.scorm.ui.reporting.components.ScorePanel;
 import org.sakaiproject.scorm.ui.reporting.util.InteractionProvider;
-import org.sakaiproject.wicket.markup.html.link.BookmarkablePageLabeledLink;
-import org.sakaiproject.wicket.markup.html.repeater.data.presenter.EnhancedDataPresenter;
-import org.sakaiproject.wicket.markup.html.repeater.data.table.Action;
-import org.sakaiproject.wicket.markup.html.repeater.data.table.ActionColumn;
-import org.sakaiproject.wicket.markup.html.repeater.data.table.DecoratedPropertyColumn;
-import org.sakaiproject.wicket.markup.html.repeater.data.table.ImageLinkColumn;
+import org.sakaiproject.wicket.component.link.BookmarkablePageLabeledLink;
+import org.sakaiproject.wicket.component.repeater.data.presenter.EnhancedDataPresenter;
+import org.sakaiproject.wicket.component.repeater.data.table.Action;
+import org.sakaiproject.wicket.component.repeater.data.table.ActionColumn;
+import org.sakaiproject.wicket.component.repeater.data.table.DecoratedPropertyColumn;
+import org.sakaiproject.wicket.component.repeater.data.table.ImageLinkColumn;
 
 public class ScoResultsPage extends BaseResultsPage {
 

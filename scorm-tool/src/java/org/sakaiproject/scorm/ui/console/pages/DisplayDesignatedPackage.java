@@ -41,7 +41,7 @@ import org.sakaiproject.scorm.ui.player.pages.PlayerPage;
 import org.sakaiproject.scorm.ui.reporting.pages.LearnerResultsPage;
 import org.sakaiproject.scorm.ui.reporting.pages.ResultsListPage;
 import org.sakaiproject.tool.api.ToolManager;
-import org.sakaiproject.wicket.markup.html.SakaiPortletWebPage;
+import org.sakaiproject.wicket.core.portlet.page.SakaiPortletWebPage;
 
 public class DisplayDesignatedPackage extends SakaiPortletWebPage implements IHeaderContributor, ScormConstants {
 

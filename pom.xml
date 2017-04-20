@@ -36,7 +36,6 @@
         <module>scorm-impl/service</module>
         <module>scorm-impl/pack</module>
         <module>scorm-tool</module>
-        <module>wicket-tool</module>
     </modules>
 
     <dependencyManagement>
@@ -76,13 +75,6 @@
                 <artifactId>scorm-api</artifactId>
                 <version>${project.version}</version>
                 <type>jar</type>
-            </dependency>
-            <dependency>
-                <groupId>org.sakaiproject.scorm</groupId>
-                <artifactId>wicket-for-scorm-tool</artifactId>
-                <version>${project.version}</version>
-                <type>jar</type>
-                <scope>compile</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>

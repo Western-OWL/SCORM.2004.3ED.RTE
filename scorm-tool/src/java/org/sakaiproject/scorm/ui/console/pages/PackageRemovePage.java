@@ -45,7 +45,7 @@ import org.sakaiproject.scorm.ui.console.pages.PackageConfigurationPage.Assessme
 import org.sakaiproject.scorm.ui.console.pages.PackageConfigurationPage.GradebookSetup;
 import org.sakaiproject.service.gradebook.shared.GradebookExternalAssessmentService;
 import org.sakaiproject.tool.api.Placement;
-import org.sakaiproject.wicket.markup.html.form.CancelButton;
+import org.sakaiproject.wicket.component.form.CancelButton;
 
 public class PackageRemovePage extends ConsoleBasePage {
 
