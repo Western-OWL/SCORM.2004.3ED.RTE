@@ -39,8 +39,6 @@ import org.sakaiproject.wicket.component.repeater.data.table.BasicDataTable;
 
 public class ValidationPage extends ConsoleBasePage {
 
-	private static final long serialVersionUID = 1L;
-
 	private static Log log = LogFactory.getLog(ValidationPage.class);
 	
 	private static ResourceReference PAGE_ICON = new ResourceReference(ConsoleBasePage.class, "res/table_link.png");
@@ -55,8 +53,14 @@ public class ValidationPage extends ConsoleBasePage {
 	ScormResourceService resourceService;
 	
 	private final BasicDataTable table;
-	
-	
+
+	@Override
+	protected void onInitialize()
+	{
+		super.onInitialize();
+		//disableLink(validateLink);
+	}
+
 	public ValidationPage(PageParameters params) {
 		List<Archive> resources = resourceService.getUnvalidatedArchives();
 

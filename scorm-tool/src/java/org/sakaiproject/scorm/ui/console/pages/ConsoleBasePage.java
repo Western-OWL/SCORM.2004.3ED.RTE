@@ -17,7 +17,7 @@ package org.sakaiproject.scorm.ui.console.pages;
 
 import org.apache.wicket.PageParameters;
 import org.apache.wicket.ResourceReference;
-import org.apache.wicket.behavior.SimpleAttributeModifier;
+import org.apache.wicket.behavior.AttributeAppender;
 import org.apache.wicket.markup.html.IHeaderContributor;
 import org.apache.wicket.markup.html.IHeaderResponse;
 import org.apache.wicket.markup.html.WebMarkupContainer;
@@ -25,6 +25,7 @@ import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.markup.html.resources.CompressedResourceReference;
 import org.apache.wicket.model.IModel;
+import org.apache.wicket.model.Model;
 import org.apache.wicket.model.ResourceModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
@@ -54,7 +55,10 @@ public class ConsoleBasePage extends SakaiPortletWebPage implements IHeaderContr
 	// The feedback panel component displays dynamic messages to the user
 	protected FeedbackPanel feedback;
 	private BreadcrumbPanel breadcrumbs;
-	
+
+	public NavIntraLink listLink;
+	public NavIntraLink uploadLink;
+	//public NavIntraLink validateLink;
 	
 	@SpringBean
 	private LearningManagementSystem lms;
@@ -77,74 +81,50 @@ public class ConsoleBasePage extends SakaiPortletWebPage implements IHeaderContr
 	        wmc.setVisible(false);
 		}
 		
-        NavIntraLink listLink = new NavIntraLink("listLink", new ResourceModel("link.list"), PackageListPage.class);
-        NavIntraLink uploadLink = new NavIntraLink("uploadLink", new ResourceModel("link.upload"), UploadPage.class);
-        //NavIntraLink validateLink = new NavIntraLink("validateLink", new ResourceModel("link.validate"), ValidationPage.class);
-        
-        WebMarkupContainer listContainer = new WebMarkupContainer( "listContainer" );
-        WebMarkupContainer uploadContainer = new WebMarkupContainer( "uploadContainer" );
-        //WebMarkupContainer validateContainer = new WebMarkupContainer( "validateContainer" );
-        listContainer.add( listLink );
-        uploadContainer.add( uploadLink );
-        //validateContainer.add( validateLink );
+		listLink = new NavIntraLink("listLink", new ResourceModel("link.list"), PackageListPage.class);
+		uploadLink = new NavIntraLink("uploadLink", new ResourceModel("link.upload"), UploadPage.class);
+		//validateLink = new NavIntraLink("validateLink", new ResourceModel("link.validate"), ValidationPage.class);
 
-        SimpleAttributeModifier className = new SimpleAttributeModifier( "class", "current" );
-        if( listLink.linksTo( getPage() ) )
-        {
-            listContainer.add( className );
-            listLink.add( className );
-        }
-        else if( uploadLink.linksTo( getPage() ) )
-        {
-            uploadContainer.add( className );
-            uploadLink.add( className );
-        }
-        //else if( validateLink.linksTo( getPage() ) )
-        //{
-        //    validateContainer.add( className );
-        //    validateLink.add( className );
-        //}
-        
-        listLink.setVisible(canUpload || canValidate);
-        uploadLink.setVisible(canUpload);
-        
-        // SCO-107 - hide the validate link (interface is currently unimplemented)
-        //validateLink.setVisible(canValidate);
-        //validateLink.setVisibilityAllowed(false);
-        
-        Icon listIcon = new Icon("listIcon", LIST_ICON);
-        Icon uploadIcon = new Icon("uploadIcon", UPLOAD_ICON);
-        //Icon validateIcon = new Icon("validateIcon", VALIDATE_ICON);
-        
-        // SCO-109 - conditionally show the icons in the menu bar buttons
-        boolean enableMenuBarIcons = serverConfigurationService.getBoolean( SAK_PROP_ENABLE_MENU_BUTTON_ICONS, true );
-        if( enableMenuBarIcons )
-        {
-            listIcon.setVisible(canUpload || canValidate);
-            uploadIcon.setVisible(canUpload);
+		listLink.setVisible(canUpload || canValidate);
+		uploadLink.setVisible(canUpload);
 
-            // SCO-107 hide the validate link (interface is currently unimplemented)
-            //validateIcon.setVisible(canValidate);
-            //validateIcon.setVisibilityAllowed(false);
-        }
-        else
-        {
-            listIcon.setVisibilityAllowed( false );
-            uploadIcon.setVisibilityAllowed( false );
-            //validateIcon.setVisibilityAllowed( false );
-        }
-        
-        listContainer.add(listIcon);
-        uploadContainer.add(uploadIcon);
-        //validateContainer.add(validateIcon);
+		// SCO-107 - hide the validate link (interface is currently unimplemented)
+		//validateLink.setVisible(canValidate);
+		//validateLink.setVisibilityAllowed(false);
 
-        wmc.add( listContainer );
-        wmc.add( uploadContainer );
-        //wmc.add( validateContainer );
+		Icon listIcon = new Icon("listIcon", LIST_ICON);
+		Icon uploadIcon = new Icon("uploadIcon", UPLOAD_ICON);
+		//Icon validateIcon = new Icon("validateIcon", VALIDATE_ICON);
 
-        // add the toolbar container
-        add(wmc);
-        
+		// SCO-109 - conditionally show the icons in the menu bar buttons
+		boolean enableMenuBarIcons = serverConfigurationService.getBoolean( SAK_PROP_ENABLE_MENU_BUTTON_ICONS, true );
+		if( enableMenuBarIcons )
+		{
+			listIcon.setVisible(canUpload || canValidate);
+			uploadIcon.setVisible(canUpload);
+
+			// SCO-107 hide the validate link (interface is currently unimplemented)
+			//validateIcon.setVisible(canValidate);
+			//validateIcon.setVisibilityAllowed(false);
+		}
+		else
+		{
+			listIcon.setVisibilityAllowed( false );
+			uploadIcon.setVisibilityAllowed( false );
+			//validateIcon.setVisibilityAllowed( false );
+		}
+
+		wmc.add(listIcon);
+		wmc.add(uploadIcon);
+		//wmc.add(validateIcon);
+
+		wmc.add( listLink );
+		wmc.add( uploadLink );
+		//wmc.add( validateLink );
+
+		// add the toolbar container
+		add(wmc);
+
 		add(newPageTitleLabel(params));
 		add(feedback = new SakaiFeedbackPanel("feedback"));
 		add(breadcrumbs = new BreadcrumbPanel("breadcrumbs"));
@@ -185,5 +165,13 @@ public class ConsoleBasePage extends SakaiPortletWebPage implements IHeaderContr
 				toolManager.getCurrentTool() != null && 
 				"sakai.scorm.singlepackage.tool".equals(toolManager.getCurrentTool().getId());
 	}
-	
+
+	/**
+	 * Helper to disable a link. Add the Sakai class 'current'.
+	 * @param link
+	 */
+	protected void disableLink(final NavIntraLink link) {
+		link.add(new AttributeAppender("class", new Model<>("current"), " "));
+		link.setEnabled(false);
+	}
 }

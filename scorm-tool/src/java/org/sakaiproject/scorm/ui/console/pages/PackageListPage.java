@@ -53,8 +53,6 @@ import org.sakaiproject.wicket.component.repeater.data.table.ImageLinkColumn;
 
 public class PackageListPage extends ConsoleBasePage implements ScormConstants {
 
-	private static final long serialVersionUID = 1L;
-
 	@SuppressWarnings("unused")
 	private static final Log LOG = LogFactory.getLog(PackageListPage.class);
 
@@ -65,6 +63,12 @@ public class PackageListPage extends ConsoleBasePage implements ScormConstants {
 	LearningManagementSystem lms;
 	@SpringBean(name="org.sakaiproject.scorm.service.api.ScormContentService")
 	ScormContentService contentService;
+
+	@Override
+	protected void onInitialize() {
+		super.onInitialize();
+		disableLink(listLink);
+	}
 
 	public PackageListPage(PageParameters params) {
 
