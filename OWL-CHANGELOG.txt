@@ -1,3 +1,5 @@
+2017.08.15:
+	- [OWL-2823] remove ability to sort on the 'Remove' column
 2017.08.04:
 	- [OWL-2783] intraNavBar not formatted properly for Sakai 11+
 2017.05.01:

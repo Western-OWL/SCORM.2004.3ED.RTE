@@ -145,7 +145,7 @@ public class PackageListPage extends ConsoleBasePage implements ScormConstants {
 
 		if (canDelete)
 		{
-			columns.add(new ImageLinkColumn(new Model("Remove"), PackageRemovePage.class, paramPropertyExpressions, DELETE_ICON, "delete"));
+			columns.add(new ImageLinkColumn(new Model("Remove"), PackageRemovePage.class, paramPropertyExpressions, DELETE_ICON));
 		}
 
 		BasicDataTable table = new BasicDataTable("cpTable", columns, contentPackages);
