@@ -83,6 +83,11 @@
             <artifactId>xmlParserAPIs</artifactId>
             <type>jar</type>
         </dependency>
+        <dependency>
+            <groupId>xml-apis</groupId>
+            <artifactId>xml-apis</artifactId>
+            <type>jar</type>
+       </dependency>
     </dependencies>
 
     <build />
