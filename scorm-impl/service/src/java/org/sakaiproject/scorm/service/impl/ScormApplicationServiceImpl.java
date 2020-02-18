@@ -1195,7 +1195,7 @@ public abstract class ScormApplicationServiceImpl implements ScormApplicationSer
 		return isSuccessful;
 	}
 
-	protected void synchResultWithGradebook(SessionBean sessionBean)
+	public void synchResultWithGradebook(SessionBean sessionBean)
 	{
 		ScoBean displayingSco = sessionBean.getDisplayingSco();
 		IDataManager dataManager = getDataManager(displayingSco);

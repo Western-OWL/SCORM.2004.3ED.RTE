@@ -43,4 +43,6 @@ public interface ScormApplicationService
 	public boolean setValue(String dataModelElement, String value, SessionBean sessionBean, ScoBean scoBean);
 
 	public boolean terminate(String iParam, INavigationEvent navigationEvent, SessionBean sessionBean, ScoBean scoBean);
+
+	public void synchResultWithGradebook(SessionBean sessionBean);
 }

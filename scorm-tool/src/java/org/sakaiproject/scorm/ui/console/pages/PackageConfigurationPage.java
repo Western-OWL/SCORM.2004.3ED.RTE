@@ -16,6 +16,7 @@
 package org.sakaiproject.scorm.ui.console.pages;
 
 import java.io.Serializable;
+import java.text.MessageFormat;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -43,10 +44,16 @@ import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
 import org.sakaiproject.scorm.dao.api.ContentPackageManifestDao;
+import org.sakaiproject.scorm.model.api.Attempt;
 import org.sakaiproject.scorm.model.api.ContentPackage;
 import org.sakaiproject.scorm.model.api.ContentPackageManifest;
+import org.sakaiproject.scorm.model.api.LearnerExperience;
+import org.sakaiproject.scorm.model.api.ScoBean;
+import org.sakaiproject.scorm.model.api.SessionBean;
 import org.sakaiproject.scorm.service.api.LearningManagementSystem;
+import org.sakaiproject.scorm.service.api.ScormApplicationService;
 import org.sakaiproject.scorm.service.api.ScormContentService;
+import org.sakaiproject.scorm.service.api.ScormResultService;
 import org.sakaiproject.service.gradebook.shared.AssessmentNotFoundException;
 import org.sakaiproject.service.gradebook.shared.AssignmentHasIllegalPointsException;
 import org.sakaiproject.service.gradebook.shared.ConflictingAssignmentNameException;
@@ -165,6 +172,12 @@ public class PackageConfigurationPage extends ConsoleBasePage
 
 	@SpringBean(name = "org.sakaiproject.tool.api.ToolManager")
 	ToolManager toolManager;
+
+	@SpringBean(name="org.sakaiproject.scorm.service.api.ScormResultService")
+	ScormResultService resultService;
+
+	@SpringBean(name="org.sakaiproject.scorm.service.api.ScormApplicationService")
+	ScormApplicationService applicationService;
 
 	private String unlimitedMessage;
 
@@ -296,6 +309,21 @@ public class PackageConfigurationPage extends ConsoleBasePage
 							{
 								gradebookExternalAssessmentService.addExternalAssessment(context, assessmentExternalId, null, fixedTitle, assessmentSetup.numberOffPoints,
 																							gradebookSetup.getContentPackage().getDueOn(), "SCORM player", null, false);
+
+								// Push grades on creation of gradebook item
+								ContentPackage contentPackage = contentService.getContentPackage(contentPackageId);
+								List<LearnerExperience> learnerExperiences = resultService.getLearnerExperiences(contentPackageId);
+								for (LearnerExperience experience : learnerExperiences)
+								{
+									Attempt latestAttempt = resultService.getNewstAttempt(contentPackageId, experience.getLearnerId());
+									if (latestAttempt != null)
+									{
+										SessionBean sessionBean = new SessionBean(experience.getLearnerId(), contentPackage);
+										ScoBean scoBean = applicationService.produceScoBean(assessmentSetup.getLaunchData().getItemIdentifier(), sessionBean);
+										scoBean.setDataManagerId(latestAttempt.getDataManagerId(scoBean.getScoId()));
+										applicationService.synchResultWithGradebook(sessionBean);
+									}
+								}
 							}
 							else if (has && !on)
 							{
@@ -321,6 +349,11 @@ public class PackageConfigurationPage extends ConsoleBasePage
 						catch (AssignmentHasIllegalPointsException ex)
 						{
 							error(getLocalizer().getString("form.error.gradebook.noGradebook", this));
+							onError(target);
+						}
+						catch (Exception ex)
+						{
+							error(MessageFormat.format("form.error.unknown", ex.getMessage()));
 							onError(target);
 						}
 					}
