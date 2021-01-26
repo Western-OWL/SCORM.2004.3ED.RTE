@@ -25,12 +25,17 @@ import org.apache.wicket.extensions.markup.html.repeater.data.table.HeadersToolb
 import org.apache.wicket.extensions.markup.html.repeater.data.table.IColumn;
 import org.apache.wicket.extensions.markup.html.repeater.data.table.ISortableDataProvider;
 import org.apache.wicket.extensions.markup.html.repeater.data.table.NoRecordsToolbar;
+import org.apache.wicket.markup.head.CssHeaderItem;
+import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.repeater.RepeatingView;
 import org.apache.wicket.model.ResourceModel;
+import org.apache.wicket.request.resource.PackageResourceReference;
 
 public class SakaiDataTable extends AjaxFallbackDefaultDataTable
 {
     private static final long	serialVersionUID	= 1L;
+
+	private static final PackageResourceReference CSS = new PackageResourceReference(SakaiDataTable.class, "sakaidatatable.css");
 
     /**
      * Constructor
@@ -60,4 +65,11 @@ public class SakaiDataTable extends AjaxFallbackDefaultDataTable
         addTopToolbar(new HeadersToolbar(this, dataProvider));
         addBottomToolbar(new NoRecordsToolbar(this, new ResourceModel("no_data")));
     }
+
+	@Override
+	public void renderHead(IHeaderResponse response)
+	{
+		super.renderHead(response);
+		response.render(CssHeaderItem.forReference(CSS));
+	}
 }

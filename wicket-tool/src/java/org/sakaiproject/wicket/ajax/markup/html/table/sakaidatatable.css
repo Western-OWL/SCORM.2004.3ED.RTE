@@ -1,0 +1,14 @@
+ /** Wicket table sorting indicator */
+.wicket_orderUp a span {
+    background-image: url('/library/image/sakai/sortascending.gif');
+    background-repeat: no-repeat;
+    background-position:right center;
+    padding-right: 16px;
+}
+.wicket_orderDown a span {
+    background-image: url('/library/image/sakai/sortdescending.gif');
+    background-repeat: no-repeat;
+    background-position: right center;
+    padding-right: 16px;
+}
+
